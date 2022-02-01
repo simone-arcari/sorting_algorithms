@@ -79,8 +79,9 @@ void selection_sort(int *array, int n) {
         @param n: dimensione dell'array
 */
 	for(int i=0; i<n; i++) {
-		int j = min(array, i, n);
+		int j = min(array, i, n);	// trova l'indice del min del sottoarray
 		
+		/* mette il min in testa al sottoarray */
 		int temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
@@ -132,10 +133,10 @@ void insertion_sort(int *array, int n) {
         @param n: dimensione dell'array
 */
         int temp, j;
-        for(int i=1; i<n; i++) {
+        for(int i=1; i<n; i++) {	// scorre ogni posizione dell'array
                 temp = array[i];
                 j = i;
-                while(j>0 && array[j-1]>temp) {
+                while(j>0 && array[j-1]>temp) {		// confranta l'elemeto corrente con quelli precedenti
                         array[j] = array[j-1];
                         j--;
                 }
@@ -198,7 +199,7 @@ void merge_sort(int *array, int first, int last) {
                 merge_sort(array, first, middle);
                 merge_sort(array, middle+1, last);
 
-                merge(array, first, last, middle);
+                merge(array, first, last, middle);	// fonde ordinatamente due sotto vettori già ordinati
         }
 }
 
@@ -214,7 +215,7 @@ void merge(int *array, int first, int last, int middle) {
         int k = 0;			// indice per temp[]
         int temp[last+1 - first];	// vettore di appogio per il merge
         
-        while(i <= middle && j <= last) {       //Finché non ho esaurito almeno uno dei due sottoarray
+        while(i <= middle && j <= last) {       // finché non ho esaurito almeno uno dei due sottoarray
                 if(array[i] <= array[j]) {
                         temp[k] = array[i];
                         i++;
@@ -225,22 +226,22 @@ void merge(int *array, int first, int last, int middle) {
                 k++;
         }
         
-        if(i>middle) {
+        if(i>middle) {				// se è esaurito il primo sottoarray
         	while(j<=last) {
-        		temp[k] = array[j];
+        		temp[k] = array[j];	// finisco di riempire col secondo sottoarray
         		j++;
         		k++;
         	}
-        }else if(j>last) {
-        	while(i<=middle) {
-        		temp[k] = array[i];
+        }else if(j>last) {			// se è esaurito il secondo sottoarray
+        	while(i<=middle) {		
+        		temp[k] = array[i];	// finisco di riempire col primo sottoarray
         		i++;
         		k++;
         	}
         }
         
         k=0;
-        for(int h=first; h <= last; h++) {
+        for(int h=first; h <= last; h++) {	// copio l'array temp ordinato nell'array originale
         	array[h] = temp[k];
         	k++;
         }
