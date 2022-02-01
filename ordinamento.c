@@ -90,7 +90,7 @@ void selection_sort(int *array, int n) {
 int min(int *array, int k, int n) {
 /*
         @param array: puntatore primo elemento del vettore
-        @param k: primo indice dacui scorrere il vettore
+        @param k: primo indice da cui scorrere il vettore
         @param n: dimensione dell'array
         @return min: indice posizionale del minimo
 */
