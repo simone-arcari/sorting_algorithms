@@ -192,9 +192,8 @@ void merge_sort(int *array, int first, int last) {
         @param first: indice primo elemento
         @param last: indice ultimo elemento
 */
-        if(first < last) {
+        if(first < last) {	// il sottoarray deve contenere almeno 2 valori
                 int middle = (first + last)/2;
-
 
                 merge_sort(array, first, middle);
                 merge_sort(array, middle+1, last);
