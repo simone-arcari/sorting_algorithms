@@ -78,7 +78,7 @@ void selection_sort(int *array, int n) {
         @param array: puntatore primo elemento del vettore
         @param n: dimensione dell'array
 */
-	for(int i=0; i<n;i++) {
+	for(int i=0; i<n; i++) {
 		int j = min(array, i, n);
 		
 		int temp = array[i];
